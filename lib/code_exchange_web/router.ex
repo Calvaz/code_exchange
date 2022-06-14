@@ -17,9 +17,10 @@ defmodule CodeExchangeWeb.Router do
   scope "/", CodeExchangeWeb do
     pipe_through :browser
 
+    live "/", HomeLive
     live "/counter", CounterLive
-    get "/", HomeController, :index
-    get "/code", CodeController, :index
+    live "/discuss", DiscussLive
+    live "/code", CodeLive
   end
 
   # Other scopes may use custom stacks.
