@@ -23,6 +23,13 @@ defmodule CodeExchangeWeb.Router do
     live "/code", CodeLive
   end
 
+  scope "/auth", CodeExchangeWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", CodeExchangeWeb do
   #   pipe_through :api
