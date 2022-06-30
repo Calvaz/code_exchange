@@ -26,6 +26,7 @@ defmodule CodeExchangeWeb.Router do
   scope "/auth", CodeExchangeWeb do
     pipe_through :browser
 
+    get "/signout", AuthController, :signout
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
   end
