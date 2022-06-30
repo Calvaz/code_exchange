@@ -33,4 +33,10 @@ defmodule AuthController do
         |> redirect(to: Routes.live_path(conn, CodeExchangeWeb.HomeLive))
     end
   end
+
+  def signout(conn, _params) do
+    conn
+    |> configure_session(drop: true)
+    |> redirect(to: Routes.live_path(conn, CodeExchangeWeb.HomeLive))
+  end
 end
