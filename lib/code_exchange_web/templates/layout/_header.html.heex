@@ -17,9 +17,9 @@
       </div>
       <div>
       <%= if @conn.assigns[:user] do %>
-        <%= link "Sign out", to: Routers.auth_path(@conn, :signout), class: "nav-link hover:text-darkGrayBlue" %>   
+        <%= link "Sign out", to: Routes.auth_path(@conn, :signout), class: "nav-link hover:text-darkGrayBlue" %>   
       <% else %>
-        <%= link "Sign in", to: Routers.auth_path(@conn, :request, "github"), class: "nav-link hover:text-darkGrayBlue" %>
+        <%= link "Sign in", to: Routes.auth_path(@conn, :request, "github"), class: "nav-link hover:text-darkGrayBlue" %>
       <% end %>
       </div>
     </div>
