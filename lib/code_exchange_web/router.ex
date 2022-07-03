@@ -8,6 +8,7 @@ defmodule CodeExchangeWeb.Router do
     plug :put_root_layout, {CodeExchangeWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug CodeExchangeWeb.Plugs.SetUser
   end
 
   pipeline :api do
