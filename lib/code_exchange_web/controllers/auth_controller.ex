@@ -1,8 +1,13 @@
-defmodule AuthController do
+defmodule CodeExchangeWeb.AuthController do
   use CodeExchangeWeb, :controller
 
   plug Ueberauth
   alias CodeExchange.User
+  alias Ueberauth.Strategy.Helpers
+
+  def request(conn, _params) do
+    redirect(conn, to: Routes.live_path(conn, CodeExchangeWeb.HomeLive), callback_url: Helpers.callback_url(conn))
+  end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
     user_params = %{token: auth.credentials.token, email: auth.info.email, provider: "github"}
