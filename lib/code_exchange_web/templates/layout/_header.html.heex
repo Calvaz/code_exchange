@@ -1,13 +1,16 @@
 <header id="navmenu">
-  <nav class="relative container mx-auto p-6">
-    <div class="flex items-center justify-start">
+  <nav class="relative container mx-auto p-6 font-mono">
+    <div class="flex items-center justify-around">
+      
       <!-- Logo -->
-      <div class="mr-8">Logo</div>
-      <!-- Menu Items -->
-      <div class="hidden mx-8 space-x-8 justify-center md:flex">
+      <div class="mr-8">
         <%= live_redirect to: Routes.live_path(@conn, CodeExchangeWeb.HomeLive), class: "nav-link hover:text-darkGrayBlue" do %>
-          Home
+          Logo
         <% end %> 
+      </div>
+
+      <!-- Menu Items -->
+      <div class="hidden mx-8 space-x-8 md:flex">
         <%= live_redirect to: Routes.live_path(@conn, CodeExchangeWeb.CodeLive), class: "nav-link hover:text-darkGrayBlue" do %>
           Manage
         <% end %> 
@@ -15,11 +18,15 @@
           Discuss
         <% end %>
       </div>
-      <div>
+      <div class="github text-lg">
       <%= if @conn.assigns[:user] do %>
-        <%= link "Sign out", to: Routes.auth_path(@conn, :signout), class: "nav-link hover:text-darkGrayBlue" %>   
+        <%= link to: Routes.auth_path(@conn, :signout), class: "nav-link hover:text-darkGrayBlue" do %>
+          Sign out
+        <% end %>   
       <% else %>
-        <%= link "Sign in", to: Routes.auth_path(@conn, :request, "github"), class: "nav-link hover:text-darkGrayBlue" %>
+        <%= link to: Routes.auth_path(@conn, :request, "github"), class: "nav-link hover:text-darkGrayBlue" do %>
+          Sign in
+        <% end %>
       <% end %>
       </div>
     </div>
