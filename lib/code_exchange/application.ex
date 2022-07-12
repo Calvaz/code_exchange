@@ -7,6 +7,8 @@ defmodule CodeExchange.Application do
 
   @impl true
   def start(_type, _args) do
+    IO.puts("Starting ....")
+
     children = [
       # Start the Ecto repository
       CodeExchange.Repo,

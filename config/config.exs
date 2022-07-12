@@ -56,14 +56,10 @@ config :tailwind, version: "3.1.3", default: [
   cd: Path.expand("../assets", __DIR__)
 ]
 
-config :ueberauth, Ueberauth,
-  providers: [
-    github: {Ueberauth.Strategy.Github, []}
-  ]
+config :oauth2, debug: true
 
-config :ueberauth, Ueberauth.Strategy.Github.OAuth,
-  client_id: System.get_env("GITHUB_CLIENT_ID"),
-  client_secret: System.get_env("GITHUB_CLIENT_SECRET")
+config :tesla, debug: true
+config :tesla, adapter: Tesla.Adapter.Hackney
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
