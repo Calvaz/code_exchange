@@ -20,7 +20,7 @@ defmodule CodeExchange.MixProject do
   def application do
     [
       mod: {CodeExchange.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_github]
+      extra_applications: [:logger, :runtime_tools, :oauth2]
     ]
   end
 
@@ -51,8 +51,8 @@ defmodule CodeExchange.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:tesla, "~> 1.4"},
-      {:ueberauth, "~> 0.7"},
-      {:ueberauth_github, "~> 0.7"}
+      {:hackney, "~> 1.17"},
+      {:oauth2, "~> 2.0"}
     ]
   end
 
