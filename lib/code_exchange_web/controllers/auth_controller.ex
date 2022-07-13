@@ -3,6 +3,7 @@ defmodule CodeExchangeWeb.AuthController do
 
   alias CodeExchange.User
   alias CodeExchange.Github
+  alias CodeExchange.Repo
 
   def request(conn, _provider) do
     redirect conn, external: authorize_url!()
@@ -20,8 +21,8 @@ defmodule CodeExchangeWeb.AuthController do
     # Request the user's data with the access token
     case Github.get_user_email(client) do
       {:ok, response} ->
-        for %{primary: true, email: email} <- response.body do
-          changeset = User.changeset(%User{}, %{email: email})
+        for email <- response.body, email["primary"] == true do
+          changeset = User.changeset(%User{}, %{email: email, token: client, provider: "github"})
           signin(conn, changeset)
         end
       {:error, error} ->
