@@ -1,8 +1,8 @@
-defmodule CodeExchange.UserRoom do
+defmodule CodeExchange.UserRooms do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "user_room" do
+  schema "user_rooms" do
     belongs_to :user, CodeExchange.User
     belongs_to :room, CodeExchange.Room
   end

@@ -2,9 +2,9 @@ defmodule CodeExchange.Room do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "room" do
+  schema "rooms" do
 		field :name, :string
-		has_many :comments, CodeExchange.Comments
+		has_many :comments, CodeExchange.Comment
 
 		timestamps()
   end
