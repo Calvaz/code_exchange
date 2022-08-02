@@ -1,6 +1,6 @@
 defmodule CodeExchangeWeb.CodeLive do
   use CodeExchangeWeb, :live_view
-  import CodeExchange.Github
+  import CodeExchange.GithubAPI
 
   def mount(_, _, socket) do
     github_pr = get_repos("user_id")

@@ -1,9 +1,8 @@
 defmodule CodeExchangeWeb.Plugs.SetUser do
   import Plug.Conn
-  import Phoenix.Controller
 
   alias CodeExchange.Repo
-  alias CodeExchange.Users
+  alias CodeExchange.User
 
   def init(_params) do
   end

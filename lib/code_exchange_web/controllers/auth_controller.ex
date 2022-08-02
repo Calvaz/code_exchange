@@ -22,7 +22,9 @@ defmodule CodeExchangeWeb.AuthController do
     case Github.get_user_email(client) do
       {:ok, response} ->
         for email <- response.body, email["primary"] == true do
-          changeset = User.changeset(%User{}, %{email: email, token: client, provider: "github"})
+          token = client.token.access_token
+          %{"access_token" => access_token} = Jason.decode!(~s(#{token}))
+          changeset = User.changeset(%User{}, %{email: email["email"], provider: "github", token: access_token})
           signin(conn, changeset)
         end
       {:error, error} ->
