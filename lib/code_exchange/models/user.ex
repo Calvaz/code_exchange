@@ -6,8 +6,8 @@ defmodule CodeExchange.User do
 		field :email, :string
 		field :provider, :string
 		field :token, :string
-		has_many :rooms, CodeExchange.Room
-		has_many :comments, CodeExchange.Comments
+		#has_many :rooms, CodeExchange.Room
+		#has_many :comments, CodeExchange.Comments
 
 		timestamps()
   end
