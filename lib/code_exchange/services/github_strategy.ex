@@ -1,11 +1,11 @@
-defmodule CodeExchange.Github do
+defmodule CodeExchange.Services.Github do
   @moduledoc """
   An OAuth2 strategy for GitHub.
   """
   use OAuth2.Strategy
 
   alias OAuth2.Strategy.AuthCode
-  alias CodeExchange.GithubAPI
+  alias CodeExchange.Services.GithubAPI
 
   @github_env Application.get_env(:oauth2, Github)
   @github_scopes "user,repo,repo_deployment,repo:invite,notifications,project,write:discussion,read:discussion"
@@ -47,7 +47,7 @@ defmodule CodeExchange.Github do
 
   def get_user_email(%OAuth2.Client{:token => %OAuth2.AccessToken{:access_token => token}}) do
     %{"access_token" => access_token} = Jason.decode!(~s(#{token}))
-    GithubAPI.get_auth_user(access_token)
+    GithubAPI.get_user_emails(access_token)
   end
 
 end
