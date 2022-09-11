@@ -3,6 +3,7 @@ defmodule CodeExchange.User do
   import Ecto.Changeset
 
   schema "users" do
+		field :username, :string
 		field :email, :string
 		field :provider, :string
 		field :token, :string
@@ -14,7 +15,7 @@ defmodule CodeExchange.User do
 
   def changeset(struct, params \\ %{}) do
 		struct
-		|> cast(params, [:email, :provider, :token])
-		|> validate_required([:email, :provider, :token])
+		|> cast(params, [:username, :email, :provider, :token])
+		|> validate_required([:username, :email, :provider, :token])
   end
 end
