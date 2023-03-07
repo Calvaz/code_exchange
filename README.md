@@ -1,5 +1,8 @@
 # CodeExchange
 
+A WIP elixir web app to better spot the differences in a PR review.
+Integration with github OAuth2.
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
